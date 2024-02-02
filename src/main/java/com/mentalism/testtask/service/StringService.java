@@ -10,6 +10,9 @@ import java.util.*;
 public class StringService implements IStringService {
 
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     @SuppressWarnings("unchecked")
     public LinkedHashMap<String, Integer> calculateCharCount(String target) {

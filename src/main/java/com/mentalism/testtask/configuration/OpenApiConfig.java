@@ -10,6 +10,9 @@ import org.springframework.context.annotation.Configuration;
 @OpenAPI31
 public class OpenApiConfig {
 
+    /**
+     * Конфигурация генератора документации OpenApi
+     */
     @Bean
     public OpenAPI springOpenApi() {
         return new OpenAPI()

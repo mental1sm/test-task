@@ -31,6 +31,9 @@ class TestTaskApplicationTests {
     void contextLoads() {
     }
 
+    /*
+    * Тестирование сервиса по вычислению количества символов
+    */
     @Test
     void testStringServiceCharsCount() throws Exception {
         String input = "a42seeeerr11";
@@ -47,6 +50,9 @@ class TestTaskApplicationTests {
         Assertions.assertThat(outputMap).isEqualTo(expectatedMap);
     }
 
+    /*
+    * Тестирование эндпоинта
+    */
     @Test
     void testStringController() throws Exception {
         String input = "a42seeeerr11";

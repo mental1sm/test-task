@@ -9,6 +9,9 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 @Slf4j
 public class GlobalExceptionHandler {
 
+    /**
+     * Универсальный обработчик
+     */
     @ExceptionHandler(Exception.class)
     public ResponseEntity<Void> catchSomeException(Exception e) {
         log.error(

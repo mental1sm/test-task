@@ -10,15 +10,12 @@ import io.swagger.v3.oas.annotations.media.ExampleObject;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import java.util.LinkedHashMap;
-import java.util.Map;
 
 @Controller
 @RequestMapping("/string")
@@ -29,6 +26,12 @@ public class StringController {
     private ObjectMapper objectMapper;
     private StringService stringService;
 
+    /**
+     * Контроллер, отвечающий за обработку строки и вычисление количества символов.
+     * @param processingString - Целевая строка
+     * @return JSON вида "символ" - количество
+     * @throws JsonProcessingException - Ошибка при конвертации в JSON строку
+     */
     @Operation(
             summary = "Принимает на вход строку и возвращает количество символов в строке в порядке убывания.",
             description = "Входные данные имеют формат строки.",
@@ -62,7 +65,6 @@ public class StringController {
     )
     @GetMapping("/char-count")
     public ResponseEntity<String> getCharsCount(@RequestParam(required = true) String processingString) throws JsonProcessingException {
-        System.out.println(stringService.calculateCharCount(processingString));
         return ResponseEntity.ok().body(objectMapper.writeValueAsString(stringService.calculateCharCount(processingString)));
     }
 }
